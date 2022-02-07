@@ -21,6 +21,7 @@ function AddEmployee() {
     const [gender, setGender] = useState('');
    
     const [err, setErr] = useState('');
+    const loggedIn = localStorage.getItem('loggedIn');
 
 
 
@@ -52,7 +53,8 @@ function AddEmployee() {
                 url: "http://103.55.38.115:3000/employee",
                 data: data,
                 headers: { 
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'authorization': loggedIn
                 },
             })
             .then(response => {

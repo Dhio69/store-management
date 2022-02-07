@@ -22,6 +22,7 @@ function AddProduct() {
     const [stock, setStock] = useState('');
     const [err, setErr] = useState('');
     const [succ, setSucc] = useState('');
+    const loggedIn = localStorage.getItem('loggedIn');
 
 
 
@@ -55,10 +56,13 @@ function AddProduct() {
             formData.append("file", file);
             try {
                 axios({
-                  method: "post",
-                  url: "http://103.55.38.115:3000/upload",
-                  data: formData,
-                  headers: { "Content-Type": "multipart/form-data" },
+                    method: "post",
+                    url: "http://103.55.38.115:3000/upload",
+                    data: formData,
+                    headers: { 
+                      "Content-Type": "multipart/form-data" ,
+                      'authorization': loggedIn
+                    },
                 })
                 .then(res =>{
                     let data = JSON.stringify({
@@ -75,7 +79,8 @@ function AddProduct() {
                         url: "http://103.55.38.115:3000/product",
                         data: data,
                         headers: { 
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'application/json',
+                            'authorization': loggedIn
                         },
                     })
                     .then(response => {

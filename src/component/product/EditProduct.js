@@ -24,6 +24,7 @@ function AddProduct() {
     const [err, setErr] = useState('');
     const [succ, setSucc] = useState('');
     const { id } = useParams();
+    const loggedIn = localStorage.getItem('loggedIn');
 
 
 
@@ -34,7 +35,11 @@ function AddProduct() {
 
 
     const getProduct = () => {
-        axios.get('http://103.55.38.115:3000/product/' + id)
+        axios.get('http://103.55.38.115:3000/product/' + id, {
+            headers: {
+                'authorization': loggedIn
+            }
+        })
         .then(res =>{
           setName(res.data.data.name)
           setBrand(res.data.data.brand)
@@ -42,7 +47,6 @@ function AddProduct() {
           setStock(res.data.data.stock)
           setImage(res.data.data.image)
           res.data.data.id_type == null ? setType("") : setType(res.data.data.id_type)
-          console.log(res)
         })
         .catch (err => {
           console.log(err);
@@ -50,7 +54,11 @@ function AddProduct() {
     }
 
     const getProductType = () => {
-        axios.get('http://103.55.38.115:3000/producttype')
+        axios.get('http://103.55.38.115:3000/producttype', {
+            headers: {
+                'authorization': loggedIn
+            }
+        })
         .then(res =>{
           setData(res.data.data)
         })
@@ -84,7 +92,8 @@ function AddProduct() {
                 url: "http://103.55.38.115:3000/product/" + id,
                 data: formData,
                 headers: { 
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'authorization': loggedIn
                 },
             })
             .then(response => {

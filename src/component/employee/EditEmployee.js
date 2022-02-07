@@ -23,13 +23,18 @@ function EditEmployee() {
    
     const [err, setErr] = useState('');
     const { id } = useParams();
+    const loggedIn = localStorage.getItem('loggedIn');
 
     useEffect(() => {
         getEmployee()
     },[])
 
     const getEmployee = () => {
-        axios.get('http://103.55.38.115:3000/employee/' + id)
+        axios.get('http://103.55.38.115:3000/employee/' + id, {
+            headers: {
+                'authorization': loggedIn
+            }
+        })
         .then(res =>{
             setName(res.data.data.name)
             setUid(res.data.data.uid)
@@ -73,7 +78,8 @@ function EditEmployee() {
                 url: "http://103.55.38.115:3000/employee/" + id,
                 data: data,
                 headers: { 
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'authorization': loggedIn
                 },
             })
             .then(response => {

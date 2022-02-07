@@ -11,13 +11,18 @@ import swal from 'sweetalert';
 
 function Product() {
   const [datas, setData] = useState([])
+  const loggedIn = localStorage.getItem('loggedIn');
   let num = 1
   useEffect(() => {
     getData()
   },[])
 
   const getData = () => {
-    axios.get('http://103.55.38.115:3000/employee')
+    axios.get('http://103.55.38.115:3000/employee', {
+      headers: {
+        'authorization': loggedIn
+      }
+    })
     .then(res =>{
       setData(res.data.data)
     })
@@ -39,7 +44,9 @@ function Product() {
         var config = {
           method: 'delete',
           url: 'http://103.55.38.115:3000/employee/'+id,
-          headers: { },
+          headers: {
+            'authorization': loggedIn
+           },
         };
         
         axios(config)
