@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+.col-title {
+    color: green !important;
+    font-size: 28px !important;
+    font-weight: bold !important;
+    font-family: 'Roboto', sans-serif;
+}
+
+img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 80px;
+    height: 80px;
+}

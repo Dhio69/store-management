@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+.nav-brand {
+    color: green !important;
+    font-size: 30px !important;
+    font-weight: bold !important;
+    font-family: 'Yellowtail', cursive;
+}
+
+.nav-link {
+    color: #fff !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+}
+
+.nav-link:hover{
+    color: green !important;
+    font-size: 16px !important;
+}
