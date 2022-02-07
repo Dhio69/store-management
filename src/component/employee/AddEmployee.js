@@ -49,7 +49,7 @@ function AddEmployee() {
 
             axios({
                 method: "post",
-                url: "http://localhost:3000/employee",
+                url: "http://103.55.38.115:3000/employee",
                 data: data,
                 headers: { 
                     'Content-Type': 'application/json'

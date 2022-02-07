@@ -30,7 +30,7 @@ function AddProduct() {
     },[])
 
     const getProductType = () => {
-        axios.get('http://localhost:3000/producttype')
+        axios.get('http://103.55.38.115:3000/producttype')
         .then(res =>{
           setData(res.data.data)
         })
@@ -56,7 +56,7 @@ function AddProduct() {
             try {
                 axios({
                   method: "post",
-                  url: "http://localhost:3000/upload",
+                  url: "http://103.55.38.115:3000/upload",
                   data: formData,
                   headers: { "Content-Type": "multipart/form-data" },
                 })
@@ -72,7 +72,7 @@ function AddProduct() {
 
                     axios({
                         method: "post",
-                        url: "http://localhost:3000/product",
+                        url: "http://103.55.38.115:3000/product",
                         data: data,
                         headers: { 
                             'Content-Type': 'application/json'

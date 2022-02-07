@@ -34,7 +34,7 @@ function AddProduct() {
 
 
     const getProduct = () => {
-        axios.get('http://localhost:3000/product/' + id)
+        axios.get('http://103.55.38.115:3000/product/' + id)
         .then(res =>{
           setName(res.data.data.name)
           setBrand(res.data.data.brand)
@@ -50,7 +50,7 @@ function AddProduct() {
     }
 
     const getProductType = () => {
-        axios.get('http://localhost:3000/producttype')
+        axios.get('http://103.55.38.115:3000/producttype')
         .then(res =>{
           setData(res.data.data)
         })
@@ -81,7 +81,7 @@ function AddProduct() {
             })
             axios({
                 method: "put",
-                url: "http://localhost:3000/product/" + id,
+                url: "http://103.55.38.115:3000/product/" + id,
                 data: formData,
                 headers: { 
                     'Content-Type': 'application/json'

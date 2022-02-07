@@ -16,7 +16,7 @@ function Product() {
   },[])
 
   const getData = () => {
-    axios.get('http://localhost:3000/employee')
+    axios.get('http://103.55.38.115:3000/employee')
     .then(res =>{
       setData(res.data.data)
     })

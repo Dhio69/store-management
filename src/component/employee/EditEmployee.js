@@ -29,7 +29,7 @@ function EditEmployee() {
     },[])
 
     const getEmployee = () => {
-        axios.get('http://localhost:3000/employee/' + id)
+        axios.get('http://103.55.38.115:3000/employee/' + id)
         .then(res =>{
             setName(res.data.data.name)
             setUid(res.data.data.uid)
@@ -70,7 +70,7 @@ function EditEmployee() {
             })
             axios({
                 method: "put",
-                url: "http://localhost:3000/employee/" + id,
+                url: "http://103.55.38.115:3000/employee/" + id,
                 data: data,
                 headers: { 
                     'Content-Type': 'application/json'
